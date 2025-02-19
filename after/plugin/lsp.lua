@@ -3,8 +3,8 @@ require("mason-lspconfig").setup({
   ensure_installed = {
     "lua_ls",
     "clangd",
-    "cmake",
-    "tsserver",
+    -- "cmake",
+    "ts_ls",
     "html",
     "tailwindcss",
     "zls",
@@ -12,7 +12,7 @@ require("mason-lspconfig").setup({
     "gopls",
     "templ",
     --"htmx",
-    "cssls"
+    "cssls",
   }
 })
 
@@ -29,7 +29,7 @@ vim.filetype.add({ extension = { templ = "templ" } })
 require("lspconfig").lua_ls.setup({ on_attach = on_attach })
 require("lspconfig").clangd.setup({ on_attach = on_attach })
 require("lspconfig").cmake.setup({ on_attach = on_attach })
-require("lspconfig").tsserver.setup({ on_attach = on_attach })
+require("lspconfig").ts_ls.setup({ on_attach = on_attach })
 require("lspconfig").html.setup({ on_attach = on_attach, filetypes = { "html", "templ" }})
 require("lspconfig").tailwindcss.setup({ on_attach = on_attach })
 require("lspconfig").zls.setup({ on_attach = on_attach })
@@ -38,6 +38,24 @@ require("lspconfig").gopls.setup({ on_attach = on_attach })
 require("lspconfig").templ.setup({ on_attach = on_attach })
 --require("lspconfig").htmx.setup({ on_attach = on_attach, filetypes = { "html", "templ" }})
 require("lspconfig").cssls.setup({ on_attach = on_attach })
+require("lspconfig").dartls.setup({
+  cmd = { "dart", "language-server", "--protocol=lsp" },
+  filetypes = { "dart" },
+  init_options = {
+    closingLabels = true,
+    flutterOutline = true,
+    onlyAnalyzeProjectsWithOpenFiles = true,
+    outline = true,
+    suggestFromUnimportedLibraries = true,
+  },
+  settings = {
+    dart = {
+      completeFunctionCalls = true,
+      showTodos = true,
+    },
+  },
+  on_attach = on_attach
+})
 
 
 local cmp = require("cmp")
