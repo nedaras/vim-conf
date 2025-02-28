@@ -16,7 +16,8 @@ require'nvim-treesitter.configs'.setup {
     "go",
     "css",
     "json",
-    "templ"
+    "templ",
+    "dart"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
