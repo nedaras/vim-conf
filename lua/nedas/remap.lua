@@ -25,4 +25,5 @@ vim.keymap.set("n", "N", "Nzz")
 
 vim.keymap.set("n", "<leader>ee", "oif err != nil {<CR>}<Esc>Oreturn err<Esc>")
 
+vim.keymap.set("n", "<leader>ie", vim.diagnostic.open_float)
 -- vim.keymap.set("v", "<leader>sn", require("snipit").snip)

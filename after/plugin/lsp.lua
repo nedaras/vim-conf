@@ -22,6 +22,13 @@ local on_attach = function(_, _)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, {})
 
+  vim.diagnostic.config({
+    virtual_text = true,
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+  })
+
 end
 
 vim.filetype.add({ extension = { templ = "templ" } })
