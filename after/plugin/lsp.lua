@@ -13,38 +13,18 @@ require("mason-lspconfig").setup({
     "templ",
     --"htmx",
     "cssls",
+  },
+  automatic_enable = {
+    exclude = {
+      "html",
+      "dartls",
+    }
   }
 })
 
-local on_attach = function(_, _)
-
-  vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
-  vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-  vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, {})
-
-  vim.diagnostic.config({
-    virtual_text = true,
-    signs = true,
-    underline = true,
-    update_in_insert = false,
-  })
-
-end
-
 vim.filetype.add({ extension = { templ = "templ" } })
 
-require("lspconfig").lua_ls.setup({ on_attach = on_attach })
-require("lspconfig").clangd.setup({ on_attach = on_attach })
-require("lspconfig").cmake.setup({ on_attach = on_attach })
-require("lspconfig").ts_ls.setup({ on_attach = on_attach })
 require("lspconfig").html.setup({ on_attach = on_attach, filetypes = { "html", "templ" }})
-require("lspconfig").tailwindcss.setup({ on_attach = on_attach })
-require("lspconfig").zls.setup({ on_attach = on_attach })
-require("lspconfig").astro.setup({ on_attach = on_attach })
-require("lspconfig").gopls.setup({ on_attach = on_attach })
-require("lspconfig").templ.setup({ on_attach = on_attach })
---require("lspconfig").htmx.setup({ on_attach = on_attach, filetypes = { "html", "templ" }})
-require("lspconfig").cssls.setup({ on_attach = on_attach })
 require("lspconfig").dartls.setup({
   cmd = { "dart", "language-server", "--protocol=lsp" },
   filetypes = { "dart" },
