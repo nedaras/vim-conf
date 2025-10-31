@@ -36,8 +36,11 @@ return {
 
     vim.filetype.add({ extension = { templ = "templ" } })
 
-    require("lspconfig").html.setup({ filetypes = { "html", "templ" }})
-    require("lspconfig").dartls.setup({
+    vim.lsp.config("html", {
+      filetypes = { "html", "templ" },
+    })
+
+    vim.lsp.config("dartls", {
       cmd = { "dart", "language-server", "--protocol=lsp" },
       filetypes = { "dart" },
       init_options = {
