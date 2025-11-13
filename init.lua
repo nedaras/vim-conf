@@ -1,1 +1,2 @@
 require("nedas")
+require("config")
