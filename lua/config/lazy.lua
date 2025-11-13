@@ -19,9 +19,12 @@ local specs = {
     { import = "nedas.plugins" },
 }
 
+-- If omarchy is present we should load it's themes.
 local omarchy_path = vim.fn.expand("~/.local/share/omarchy")
 if vim.uv.fs_stat(omarchy_path) ~= nil then
   table.insert(specs, { import = "omarchy.plugins" })
+else
+  table.insert(specs, { import = "fallback.plugins" })
 end
 
 require("lazy").setup({
