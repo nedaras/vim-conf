@@ -4,8 +4,7 @@ return {
     { "nedaras/LightVim", name = "LazyVim" },
   },
   opts = {
-    theme_module = "nedas.plugins.theme",
-    theme_changed = function ()
+    post_process = function ()
       ApplyTransparency()
     end,
   },
