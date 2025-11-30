@@ -1,7 +1,7 @@
 return {
   "nedaras/omarchy-themer",
   dependencies = {
-    { "nedaras/LightVim", name = "LazyVim" },
+    { dir = "/home/nedas/Work/LightVim", name = "LazyVim" },
   },
   opts = {
     post_process = function ()
