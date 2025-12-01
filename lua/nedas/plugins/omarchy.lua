@@ -4,7 +4,8 @@ return {
     { dir = "/home/nedas/Work/LightVim", name = "LazyVim" },
   },
   opts = {
-    post_process = function ()
+    theme_module = "nedas.plugins.theme",
+    theme_changed = function ()
       ApplyTransparency()
     end,
   },
