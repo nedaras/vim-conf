@@ -1,5 +1,5 @@
 return {
-  "nedaras/omarchy-themer",
+  "nedpranson/omarchy-themer",
   dependencies = {
     { dir = "/home/nedas/Work/LightVim", name = "LazyVim" },
   },
